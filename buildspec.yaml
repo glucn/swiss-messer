@@ -23,6 +23,7 @@ phases:
         # - sudo apt-get install -y apt-transport-https
 
         # Install Angular CLI
+        - npm install
         - npm install -g @angular/cli
 
 
@@ -43,6 +44,6 @@ post_build:
 
 artifacts:
     files:
-        - '/'
+        - '**/*'
     discard-paths: yes
     base-directory: 'dist*'
