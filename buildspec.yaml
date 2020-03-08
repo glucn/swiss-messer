@@ -27,6 +27,6 @@ phases:
 artifacts:
     files:
       - '**/*'
-    name: swiss-messer-$CODEBUILD_BUILD_ID
+    name: swiss-messer-$CODEBUILD_BUILD_NUMBER
     discard-paths: yes
     base-directory: 'dist*'
