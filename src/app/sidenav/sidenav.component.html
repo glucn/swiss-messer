@@ -1,0 +1,21 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <div class="title-section">
+      Placeholder
+    </div>
+    <div class="nav-items">
+      <div *ngFor="let item of navItems">
+        <app-sidenav-item [item]="item"></app-sidenav-item>
+      </div>
+    </div>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content-wrapper">
+      <div class="content">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
