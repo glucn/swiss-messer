@@ -1,8 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 export interface NavItem {
-  iconUrl: string;
+  matIcon?: string;
   label: string;
+  url: string;
+  children?: NavItem[];
+  selected?: boolean;
 }
 
 @Component({

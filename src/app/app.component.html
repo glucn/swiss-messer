@@ -1,5 +1,4 @@
-<app-sidenav>
-  content
+<app-sidenav [appName]="appName" [navItems]="navItems$ | async">
   <router-outlet></router-outlet>
 </app-sidenav>
 

@@ -1,12 +1,22 @@
+@import '../colors.scss';
+
+.sidenav-menu {
+  min-width: 200px;
+  background-color: $white;
+}
+
 .title-section {
-  background: grey;
+  background: $white;
+  margin: auto;
+  padding: 0 10px;
 }
 
 .nav-items {
-  background: green;
+  background: $light-gray;
+  margin: 100px 0;
 }
 
-mat-sidenav-content {
+.content-wrapper {
   height: calc(100vh - 40px);
   width: 100%;
 }

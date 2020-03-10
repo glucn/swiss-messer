@@ -1,1 +1,11 @@
-{{ item.label }}
+<div class="nav-item-wrapper">
+  <div class="expand-icon">
+    <!-- TODO: Add logic for expanding -->
+  </div>
+  <div class="nav-item">
+      <mat-icon *ngIf="item.matIcon">{{ item.matIcon }}</mat-icon>
+      <a class="nav-item-label" [routerLink]="item.url">{{ item.label }}</a>
+  </div>
+</div>
+
+

@@ -1,14 +1,16 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
-    <div class="title-section">
-      Placeholder
-    </div>
-    <div class="nav-items">
-      <div *ngFor="let item of navItems">
-        <app-sidenav-item [item]="item"></app-sidenav-item>
+  <mat-sidenav mode="side"
+   opened
+   class="sidenav-menu">
+      <div class="title-section">
+        <img *ngIf="logoUrl" class="logo" [src]="logoUrl" />
+        <div class="app-name">{{ appName }}</div>
       </div>
-    </div>
-
+      <div class="nav-items">
+        <div *ngFor="let item of navItems">
+          <app-sidenav-item [item]="item"></app-sidenav-item>
+        </div>
+      </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
