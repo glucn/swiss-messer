@@ -1,1 +1,13 @@
-URL Pretty Print
+<h2>URL Pretty Print</h2>
+<div class="input-wrapper">
+  <mat-form-field matLine class="input-full-width">
+    <textarea matInput rows="5" placeholder="Put URL here"></textarea>
+  </mat-form-field>
+</div>
+<div class="button-wrapper">
+  <button mat-raised-button color=primary (click)="prettyPrint()">Make It Pretty</button>
+</div>
+<div class="output-wrapper">
+  {{ result$ | async }}
+</div>
+
