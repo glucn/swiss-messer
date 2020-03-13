@@ -7,17 +7,18 @@ import { UrlPrettyPrintService } from './url-pretty-print.service';
   styleUrls: ['./url-pretty-print.component.scss']
 })
 export class UrlPrettyPrintComponent implements OnInit {
-  result$$: BehaviorSubject<string> = new BehaviorSubject('');
+  inputUrl: String = '';
+  result$$: BehaviorSubject<String> = new BehaviorSubject('');
 
   ngOnInit(): void {
   }
 
   prettyPrint(): void {
-    const result = UrlPrettyPrintService.prettyPrint('https://google.com?a=123&b=234&c');
+    const result = UrlPrettyPrintService.prettyPrint(this.inputUrl);
     this.result$$.next(result);
   }
 
-  get result$(): Observable<string> {
+  get result$(): Observable<String> {
     return this.result$$.asObservable();
   }
 }

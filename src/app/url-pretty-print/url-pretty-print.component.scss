@@ -12,5 +12,11 @@
 }
 
 .output-wrapper {
-  white-space: pre-line;
+  width: 60%;
+}
+
+.output {
+  // white-space: pre-line;
+  color: black;
+  background-color: lightgray;
 }
