@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SideNavModule } from './sidenav/sidenav.module';
 import { UrlPrettyPrintModule } from './url-pretty-print/url-pretty-print.module';
 import { JsonPrettyPrintModule } from './json-pretty-print/json-pretty-print.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { JsonPrettyPrintModule } from './json-pretty-print/json-pretty-print.mod
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SideNavModule,
     UrlPrettyPrintModule,
     JsonPrettyPrintModule,
