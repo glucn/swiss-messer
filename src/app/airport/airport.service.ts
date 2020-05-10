@@ -11,7 +11,7 @@ export interface Airport {
   iataCode: string;
   icaoCode: string;
   latitude: number;
-  Longitude: number;
+  longitude: number;
   altitueInFeet: number;
   timezoneUTCOffset: number;
   dst: string; // TODO: change to enum?
@@ -45,7 +45,7 @@ export class AirportService {
               iataCode: data[4].replace(unquotePattern, '$1'),
               icaoCode: data[5].replace(unquotePattern, '$1'),
               latitude: Number(data[6]),
-              Longitude: Number(data[7]),
+              longitude: Number(data[7]),
               altitueInFeet: Number(data[8]),
               timezoneUTCOffset: Number(data[9]),
               dst: data[10].replace(unquotePattern, '$1'),

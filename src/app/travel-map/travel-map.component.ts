@@ -3,17 +3,24 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
 import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
 import { AirportService } from '../airport/airport.service';
-import { Observable } from 'rxjs';
+import { Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { TravelDataservice } from './travel-data.service';
+
+interface GeoLine {
+  latitude: number;
+  longitude: number;
+}
 
 @Component({
   templateUrl: './travel-map.component.html',
-  styleUrls: ['./travel-map.component.scss']
+  styleUrls: ['./travel-map.component.scss'],
+  providers: [TravelDataservice],
 })
 export class TravelMapComponent implements OnInit {
+  flightLines$: Observable<GeoLine[][]>;
 
-  constructor(private airportService: AirportService) {}
-
+  constructor(private airportService: AirportService, private travelDataservice: TravelDataservice) {}
 
   ngOnInit(): void {
     const mapChart = am4core.create('chartdiv', am4maps.MapChart);
@@ -22,42 +29,41 @@ export class TravelMapComponent implements OnInit {
 
     const polygonSeries = new am4maps.MapPolygonSeries();
     polygonSeries.useGeodata = true;
-    polygonSeries.exclude = ['AQ'];
+    polygonSeries.exclude = ['AQ']; // Don't display Antarctica on the map
     mapChart.series.push(polygonSeries);
 
     const polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.fill = am4core.color('#74B266');
 
-    this.getData().subscribe(
-      data => {
-        const lineSeries = new am4maps.MapLineSeries();
-        lineSeries.data = [{
-          multiGeoLine: [data]
-        }];
-        mapChart.series.push(lineSeries);
-      }
-    );
-  }
-
-  getData(): Observable<any> {
-    const points = [
-      {iataCode: 'PEK'},
-      {iataCode: 'CDG'},
-      {iataCode: 'YXE'},
-    ];
-
-    return this.airportService.airports$.pipe(
-      map(airports => {
-        return points.map(
-          p => {
-            const airport = airports.find(a => a.iataCode === p.iataCode);
-            return {
-              latitude: airport.latitude,
-              longitude: airport.Longitude,
-            };
-          }
-        );
+    this.flightLines$ = combineLatest([this.travelDataservice.travalData$, this.airportService.airports$]).pipe(
+      map(([travels, airports]) => {
+        return travels.map((t) => {
+          // TODO: handle the case of not found
+          const fromAirport = airports.find((a) => a.iataCode === t.fromIATACode);
+          const toAirport = airports.find((a) => a.iataCode === t.toIATACode);
+          return [
+            {
+              latitude: fromAirport.latitude,
+              longitude: fromAirport.longitude,
+            },
+            {
+              latitude: toAirport.latitude,
+              longitude: toAirport.longitude,
+            },
+          ];
+        });
       })
     );
+
+    const lineSeries = new am4maps.MapLineSeries();
+    mapChart.series.push(lineSeries);
+
+    this.flightLines$.subscribe((flightLines) => {
+      lineSeries.data = [
+        {
+          multiGeoLine: flightLines,
+        },
+      ];
+    });
   }
 }

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideNavModule } from './sidenav/sidenav.module';
 import { UrlPrettyPrintModule } from './url-pretty-print/url-pretty-print.module';
-import { JsonPrettyPrintModule } from './travel-map/travel-map.module';
+import { TravelMapModule } from './travel-map/travel-map.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     SideNavModule,
     UrlPrettyPrintModule,
-    JsonPrettyPrintModule,
+    TravelMapModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
