@@ -10,7 +10,7 @@ import { NavItem } from './sidenav-item.component';
   export class SideNavComponent implements OnInit {
     @Input() logoUrl: String = '';
     @Input() appName: String = '';
-    @Input() navItems: NavItem[] = [{url: 'https://google.com', label: 'test nav bar'}];
+    @Input() navItems: NavItem[] = [];
 
     ngOnInit(): void {
     }

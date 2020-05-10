@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { JsonPrettyPrintComponent } from './json-pretty-print.component';
+import { TravelMapComponent } from './travel-map.component';
 
 @NgModule({
     declarations: [
-      JsonPrettyPrintComponent,
+      TravelMapComponent,
     ],
     imports: [
       BrowserModule,
     ],
     exports: [
-      JsonPrettyPrintComponent,
+      TravelMapComponent,
     ],
   })
 export class JsonPrettyPrintModule {}

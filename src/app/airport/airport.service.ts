@@ -23,7 +23,6 @@ export interface Airport {
 
 @Injectable({providedIn: 'root'})
 export class AirportService {
-  // private airports$$: BehaviorSubject<Airport[]> = new BehaviorSubject(null);
   airports$: Observable<Airport[]>;
 
   constructor(private httpClient: HttpClient) {
@@ -58,19 +57,5 @@ export class AirportService {
         );
       })
     );
-    // .subscribe(
-
-    // );
   }
-
-  // public get airports$(): Observable<Airport[]> {
-  //   return this.airports$$.asObservable();
-  // }
-
-  // public getByIATACode$(iataCode: String): Observable<Airport> {
-  //   return this.airports$$.pipe(
-  //     map(airports => airports.find(airport => airport.iataCode === iataCode))
-  //   );
-  // }
-
 }

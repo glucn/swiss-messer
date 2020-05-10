@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  templateUrl: './json-pretty-print.component.html',
-  styleUrls: ['./json-pretty-print.component.scss']
+  templateUrl: './travel-map.component.html',
+  styleUrls: ['./travel-map.component.scss']
 })
-export class JsonPrettyPrintComponent implements OnInit {
+export class TravelMapComponent implements OnInit {
 
   constructor(private airportService: AirportService) {}
 

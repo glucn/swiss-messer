@@ -14,8 +14,8 @@ export class SideNavService {
           url: '/url-prettier',
         },
         {
-          label: 'Json Pretty Print',
-          url: '/json-prettier',
+          label: 'Travel Map',
+          url: '/travel-map',
         },
       ]
     );
