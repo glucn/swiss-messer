@@ -1,4 +1,5 @@
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
 
 export interface Travel {
   fromIATACode: string;
@@ -6,6 +7,7 @@ export interface Travel {
   date?: Date;
 }
 
+@Injectable()
 export class TravelDataservice {
   private travelData$$: BehaviorSubject<Travel[]> = new BehaviorSubject([
     {
