@@ -17,6 +17,10 @@ export class SideNavService {
           label: 'Travel Map',
           url: '/travel-map',
         },
+        {
+          label: 'Resume Assistant',
+          url: '/resume-assistant',
+        },
       ]
     );
   }
