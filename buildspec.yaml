@@ -2,8 +2,8 @@ version: 0.2
 
 env:
   variables:
-    S3_BUCKET: "webapp-swiss-messer"
-    APP_NAME: "swiss-messer"
+    S3_BUCKET: "webapp-swiss-army-knife"
+    APP_NAME: "swiss-army-knife"
     BUILD_ENV : "prod"
 
 phases:

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "swiss-messer": {
+    "swiss-army-knife": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "swiss-messer:build"
+            "browserTarget": "swiss-army-knife:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "swiss-messer:build:production"
+              "browserTarget": "swiss-army-knife:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "swiss-messer:build"
+            "browserTarget": "swiss-army-knife:build"
           }
         },
         "test": {
@@ -100,7 +100,7 @@
         }
       }
     },
-    "swiss-messer-e2e": {
+    "swiss-army-knife-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -109,7 +109,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "swiss-messer:serve"
+            "devServerTarget": "swiss-army-knife:serve"
           }
         },
         "lint": {
@@ -126,7 +126,7 @@
       }
     }
   },
-  "defaultProject": "swiss-messer",
+  "defaultProject": "swiss-army-knife",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

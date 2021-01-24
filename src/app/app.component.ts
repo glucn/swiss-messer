@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  appName = 'Swiss-Messer';
+  appName = 'Swiss-Army-Knife';
   navItems$: Observable<NavItem[]>;
 
   constructor(private sideNavService: SideNavService) {
