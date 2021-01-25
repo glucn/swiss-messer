@@ -1,3 +1,10 @@
 <h2>Resume Assistant</h2>
 
-Hello world!
+<div class="input-wrapper">
+  <mat-form-field matLine class="input-full-width">
+    <textarea matInput rows="50" placeholder="(Paste the job posting here)" [(ngModel)]="jobPosting"></textarea>
+  </mat-form-field>
+</div>
+<div class="button-wrapper">
+  <button mat-raised-button color=primary (click)="analyseJobPosting()">Mark Skills</button>
+</div>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SideNavModule } from './sidenav/sidenav.module';
 import { UrlPrettyPrintModule } from './url-pretty-print/url-pretty-print.module';
 import { TravelMapModule } from './travel-map/travel-map.module';
+import { ResumeAssistantModule } from './resume-assistant/resume-assistant.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     SideNavModule,
     UrlPrettyPrintModule,
     TravelMapModule,
+    ResumeAssistantModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
