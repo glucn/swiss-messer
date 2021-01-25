@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TextInputHighlightModule } from 'angular-text-input-highlight';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
       MatInputModule,
       FormsModule,
       HttpClientModule,
+      TextInputHighlightModule,
     ],
     exports: [
       ResumeAssistantComponent,
