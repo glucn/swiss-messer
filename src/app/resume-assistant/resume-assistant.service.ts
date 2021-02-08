@@ -10,6 +10,10 @@ export interface Entity {
   end?: number;
 }
 
+export interface JobPosting {
+  jobDescription: string;
+}
+
 @Injectable({providedIn: 'root'})
 export class ResumeAssistantService {
   constructor(private http: HttpClient) {}
@@ -18,10 +22,16 @@ export class ResumeAssistantService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  public analyse(jobPosting: String): Observable<any> {
+  public analyse(jobPosting: string): Observable<any> {
     const url = "http://api.tofino.glucn.com/api/v1/resume/analyze";
 
     return this.http.post(url, {'job_posting': jobPosting}, this.httpOptions);
+  }
+
+  public getJobPosting(jobPostingId: string): Observable<any> {
+    const url = `http://api.tofino.glucn.com/api/v1/jobPosting/${jobPostingId}`;
+
+    return this.http.get(url);
   }
 
 }

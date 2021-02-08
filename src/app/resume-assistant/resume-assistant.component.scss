@@ -8,6 +8,21 @@
   width: 100%;
 }
 
+.input-half-width {
+  width: 50%;
+}
+
+.input-and-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+
+  button {
+    margin-left: 16px;
+  }
+}
+
+
 .button-wrapper {
   margin-bottom: 16px;
   display: table-cell;

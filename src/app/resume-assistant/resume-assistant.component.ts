@@ -11,7 +11,8 @@ import { Entity, ResumeAssistantService } from './resume-assistant.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class ResumeAssistantComponent implements OnInit {
-  jobPosting: String = '';
+  jobPostingId: string = '';
+  jobPosting: string = '';
 
   tags$$: BehaviorSubject<HighlightTag[]> = new BehaviorSubject([]);
 
@@ -22,6 +23,17 @@ export class ResumeAssistantComponent implements OnInit {
   constructor(private resumeAssistantService: ResumeAssistantService) {}
 
   ngOnInit(): void {}
+
+  loadJobPosting(): void {
+    this.resumeAssistantService.getJobPosting(this.jobPostingId).pipe(
+      tap(console.log)
+    ).subscribe(
+      resp => {
+        this.jobPosting = resp.job_description;
+        this.analyseJobPosting();
+      }
+    )
+  }
 
   analyseJobPosting(): void {
     this.resumeAssistantService.analyse(this.jobPosting).pipe(
